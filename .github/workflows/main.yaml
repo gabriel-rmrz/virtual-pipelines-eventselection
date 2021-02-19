@@ -13,7 +13,7 @@ jobs:
     container: rootproject/root-conda:${{ matrix.version }}
     strategy:
       matrix:
-        version: [6.18.04,latest]
+        version: [6.18.04]
         allow_failure: [false]
         include:
           - version: latest
@@ -39,6 +39,8 @@ jobs:
         uses: actions/checkout@v2
       - uses: actions/download-artifact@v2
         with:
-          name skim6.18.04
+          name: skim6.18.04
       - name: skim
-        run: ./skim
+        run: |
+          chmod -x skim
+          ./skim
