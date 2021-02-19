@@ -40,6 +40,8 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: skim6.18.04
+      - name: access control
+        run: printf ${{ secrects.CERN_PASSWORD }} | base64 -d | kinit ${{secrets.CERN_USERNAME }}@CERN.CH
       - name: skim
         run: |
           chmod -x skim
