@@ -46,6 +46,6 @@ jobs:
           printf ${{ secrets.CERN_PASSWORD }} | base64 -d | kinit ${{ secrets.CERN_USERNAME }}@CERN.CH
       - name: skim
         run: |
-          chmod -x skim
+          chmod +x skim
           ./skim root://eosuser.cern.ch//eos/user/g/gstark/AwesomeWorkshopFeb2020/GluGluToTauTau.root skim_ggH.root 19.6 11467.0 0.1
 
